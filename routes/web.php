@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\WelcomeComtroller;
 use Illuminate\Support\Facades\Route;
-Route::get('/hello', function() {
-    return 'Hello World';
+use App\Http\Controllers\PhotoController;
+// Route::get('/hello', function() {
+//     return 'Hello World';
 
-});
+// });
 
 Route::get('/', function() {
-    return 'Selamat Datang';
-
+    echo 'Selamat Datang';
 });
 
 Route::get('/about', function () {
@@ -27,11 +28,13 @@ Route::get('/articles/{id}', function ($id) {
     return 'Halaman Artikel dengan ID ' . $id;
 });
 
-Route::get('/user/{name?}', function ($name='John'){
-    return 'Nama saya '.$name;
-});
+// Route::get('/user/profile', function (){
+// });
+
+Route::resource('photos', PhotoController::class);
 
 
+Route::get('/hello', [WelcomeComtroller::class,'hello']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
