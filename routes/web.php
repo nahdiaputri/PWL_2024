@@ -35,6 +35,10 @@ Route::resource('photos', PhotoController::class);
 
 
 Route::get('/hello', [WelcomeComtroller::class,'hello']);
+
+Route::get('/greeting', function() {
+    return view('hello', ['name' => 'Nahdia']);
+});
 /*
 |--------------------------------------------------------------------------
 | Web Routes
